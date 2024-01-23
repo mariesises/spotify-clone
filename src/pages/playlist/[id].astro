@@ -1,0 +1,24 @@
+---
+import { playlists } from "@/lib/data";
+import Layout from "../../layouts/Layout.astro";
+import PlayListItemCard from "@/components/PlayListItemCard.astro";
+
+import { allPlaylists, songs } from "@/lib/data";
+
+const { id } = Astro.params;
+
+const playlist = allPlaylists.find((playlist) => playlist.id === id);
+const playlistSongs = allPlaylists.find(
+  (song) => song.albumId === playlist?.albumId
+);
+---
+
+<Layout title="Spotify Clone">
+  <div
+    id="playlist-container"
+    class="relative transition-all duration-1000 bg-green-600"
+    transition:name=`playlist ${id} box`
+  >
+  </div>
+</Layout>
+<style></style>
